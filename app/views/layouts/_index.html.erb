@@ -1,0 +1,119 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <%= button_tag(class: "navbar-toggle", :'data-toggle'=>"collapse", :'data-target'=>"#bs-example-navbar-collapse-1") do %>
+                <%= content_tag(:span, 'Toggle navigation', class: "sr-only") %>
+                <%= content_tag(:span, '', class: "icon-bar") %>
+                <%= content_tag(:span, '', class: "icon-bar") %>
+                <%= content_tag(:span, '', class: "icon-bar") %>
+            <%end%>
+            <%= link_to 'Blood Donar','#',class: "navbar-brand"%>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <%= link_to 'Home', home_index_path %>
+                </li>
+                <li>
+                    <%= link_to 'About', about_home_index_path %>
+                </li>
+                <li>
+                    <%= link_to 'Services', services_home_index_path %>
+                </li>
+                <li>
+                    <%= link_to 'Contact', contact_home_index_path %>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <%= link_to '1 Column Portfolio', portfolio1_home_index_path %>
+                        </li>
+                        <li>
+                            <%= link_to '2 Column Portfolio', portfolio2_home_index_path %>
+                        </li>
+                        <li>
+                            <%= link_to '3 Column Portfolio', portfolio3_home_index_path %>
+                        </li>
+                        <li>
+                            <%= link_to '4 Column Portfolio', portfolio4_home_index_path %>
+                        </li>
+                        <li>
+                            <%= link_to 'single Portfolio', portfolio_home_index_path %>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <%= link_to 'Blog Home 1', bloghome1_home_index_path %>
+                        </li>
+                        <li>
+                            <%= link_to 'Blog Home 2', bloghome2_home_index_path %>
+                        </li>
+                        <li>
+                            <%= link_to 'Blog Post', blogpost_home_index_path %>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <%= link_to 'Sidebar', sidebar_home_index_path %>
+                        </li>
+                        <li>
+                            <%= link_to 'FAQ', faq_home_index_path %>
+                        </li>
+                        <li>
+                            <%= link_to 'Pricing', pricing_home_index_path %>
+                        </li>
+                    </ul>
+                </li>
+              <% if user_signed_in?%>
+                <li>
+                    <%= link_to 'Dashboard', users_path %>
+                </li>
+                <li class="dropdown">
+                  <a href="#", class="dropdown-toggle", data-toggle= "dropdown"><i class="fa fa-user icon-white"> <%= current_user.email %></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+                      <li><%= link_to 'LogOut',destroy_user_session_path, method: :delete%></li>
+                    </ul>
+                </li>
+              <% else %>
+                <li>
+                    <%= link_to 'Register Donar', new_user_registration_path %>
+                </li>
+                <li>
+                    <%= link_to 'LogIn', new_user_session_path %>
+                </li>
+              <% end %>
+            </ul>
+        </div>
+    </div>
+</nav>
+<% if alert %>
+    <div class="alert alert-danger alert-dismissable">
+        <b><%= t('alert')%></b> <%= alert %>
+    </div>
+<% end %>
+
+<% if notice %>
+    <div class="alert alert-success alert-dismissable">
+        <b><%= t('notice')%></b> <%= notice %>
+    </div>
+<% end %>
+
+    <%= yield %>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Your Website 2014</p>
+            </div>
+        </div>
+    </div>
+</footer>

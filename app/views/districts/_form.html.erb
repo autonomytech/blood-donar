@@ -1,0 +1,14 @@
+<%= form_for(@district) do |f| %>
+  <%= districts_errors_messages! %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.select :state_id, states, prompt: 'Select state' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

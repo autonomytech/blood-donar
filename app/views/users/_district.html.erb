@@ -1,0 +1,4 @@
+<div class="field">
+	<%= label_tag :district %><br />
+	<%= select :user, :district_id, districts, {prompt: 'Select district'}, {onchange: "cities();"}%>
+</div>

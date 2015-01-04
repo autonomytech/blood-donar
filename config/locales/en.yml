@@ -1,0 +1,5 @@
+
+en:
+  hello: "Hello world"
+  blood_groups: ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-']
+  genders: ['Male', 'Female']
