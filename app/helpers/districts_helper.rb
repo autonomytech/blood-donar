@@ -13,6 +13,6 @@ module DistrictsHelper
 
   def states
     return if @states.nil?
-    @states.collect(&:name)
+    @states.collect { |c| [c.name, c.id] }
   end
 end

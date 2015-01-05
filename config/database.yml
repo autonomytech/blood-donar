@@ -8,14 +8,14 @@ default: &default
 
 development:
   <<: *default
-  database: BloodDonar_development
+  database: BloodDonor_development
 
 test:
   <<: *default
-  database: BloodDonar_test
+  database: BloodDonor_test
 
 production:
   <<: *default
-  database: BloodDonar_production
-  username: BloodDonar
-  password: <%= ENV['BLOODDONAR_DATABASE_PASSWORD'] %>
+  database: BloodDonor_production
+  username: BloodDonor
+  password: <%= ENV['BLOODDONOR_DATABASE_PASSWORD'] %>

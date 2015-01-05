@@ -8,20 +8,44 @@
     <div class="carousel-inner">
         <div class="item active">
             <%= image_tag "b1.jpg", class: "fill" %>
-            <div class="carousel-caption">
-                <h2>Caption 1</h2>
-            </div>
         </div>
         <div class="item">
             <%= image_tag "b2.jpg", class: "fill" %>
-            <div class="carousel-caption">
-                <h2>Caption 2</h2>
-            </div>
         </div>
         <div class="item">
             <%= image_tag "1.jpg", class: "fill" %>
-            <div class="carousel-caption">
-                <h2>Caption 3</h2>
+        </div>
+        <div class="carousel-caption">
+            <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                    <%= form_for :donar, url:{action: :create} do |f|%>
+                      <div class="row">
+                        <div class="col-md-3">
+                           <%= f.label :blood_group %>
+                           <%= f.select :blood_group, t('blood_groups'), prompt: 'Select blood group'%>
+                        </div>
+                        <div class="col-md-3">
+                            <%= f.label :state %>
+                            <%= f.select :state_id, states, {prompt: 'Select state'}, {onchange:"district();"} %>
+                        </div>
+                        <div class="col-md-3" id="district">
+                            <%= render 'district' %>
+                        </div>
+                        <div class="col-md-3" id="city">
+                            <%= render 'city' %>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div align="center">
+                            <%= f.submit 'Search Donar'%>
+                        </div>
+                      </div>
+                    <% end %>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </div>
@@ -34,46 +58,6 @@
 </header>
 
 <div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">
-                Welcome to Blood Donar
-            </h1>
-        </div>
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-check"></i> Looking for blood donar?</h4>
-                </div>
-                <div class="panel-body">
-                <%= form_for :donar, url:{action: :create} do |f|%>
-                  <div class="row">
-                    <div class="col-md-3">
-                       <%= f.label :blood_group %>
-                       <%= f.select :blood_group, t('blood_groups'), prompt: 'Select blood group'%>
-                    </div>
-                    <div class="col-md-3">
-                        <%= f.label :state %>
-                        <%= f.select :state_id, states, {prompt: 'Select state'}, {onchange:"district();"} %>
-                    </div>
-                    <div class="col-md-3" id="district">
-                        <%= render 'district' %>
-                    </div>
-                    <div class="col-md-3" id="city">
-                        <%= render 'city' %>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div align="center">
-                        <%= f.submit 'Search Donar'%>
-                    </div>
-                  </div>
-                <% end %>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="row">
         <div class="col-lg-12">
             <h2 class="page-header">Portfolio Heading</h2>

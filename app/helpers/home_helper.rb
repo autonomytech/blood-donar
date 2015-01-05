@@ -1,16 +1,16 @@
 module HomeHelper
   def states
     return if @states.nil?
-    @states.collect(&:name)
+    @states.collect { |c| [c.name, c.id] }
   end
 
   def districts
     return if @districts.nil?
-    @districts.collect(&:name)
+    @districts.collect { |c| [c.name, c.id] }
   end
 
   def cities
     return if @cities.nil?
-    @cities.collect(&:name)
+    @cities.collect { |c| [c.name, c.id] }
   end
 end
